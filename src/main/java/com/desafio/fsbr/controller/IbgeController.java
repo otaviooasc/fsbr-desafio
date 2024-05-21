@@ -1,7 +1,7 @@
 package com.desafio.fsbr.controller;
 
-import com.desafio.fsbr.model.Estado;
-import com.desafio.fsbr.model.Municipio;
+import com.desafio.fsbr.model.EstadoModel;
+import com.desafio.fsbr.model.MunicipioModel;
 import com.desafio.fsbr.service.IbgeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,12 +19,12 @@ public class IbgeController {
     private IbgeService ibgeService;
 
     @GetMapping("/estados")
-    public List<Estado> getEstados() {
+    public List<EstadoModel> getEstados() {
         return ibgeService.getEstados();
     }
 
     @GetMapping("/estados/{uf}/municipios")
-    public List<Municipio> getMunicipios(@PathVariable String uf) {
+    public List<MunicipioModel> getMunicipios(@PathVariable String uf) {
         return ibgeService.getMunicipiosPorEstado(uf);
     }
 }

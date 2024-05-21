@@ -1,7 +1,7 @@
 package com.desafio.fsbr.service;
 
-import com.desafio.fsbr.model.Estado;
-import com.desafio.fsbr.model.Municipio;
+import com.desafio.fsbr.model.EstadoModel;
+import com.desafio.fsbr.model.MunicipioModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -21,13 +21,13 @@ public class IbgeService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public List<Estado> getEstados() {
-        Estado[] estados = restTemplate.getForObject(ibgeEstadosUrl, Estado[].class);
+    public List<EstadoModel> getEstados() {
+        EstadoModel[] estados = restTemplate.getForObject(ibgeEstadosUrl, EstadoModel[].class);
         return Arrays.asList(estados);
     }
 
-    public List<Municipio> getMunicipiosPorEstado(String uf) {
-        Municipio[] municipios = restTemplate.getForObject(ibgeMunicipioUrl, Municipio[].class, uf);
+    public List<MunicipioModel> getMunicipiosPorEstado(String uf) {
+        MunicipioModel[] municipios = restTemplate.getForObject(ibgeMunicipioUrl, MunicipioModel[].class, uf);
         return Arrays.asList(municipios);
     }
 }
