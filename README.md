@@ -31,7 +31,7 @@ Este projeto é uma aplicação Spring Boot para gerenciar processos, incluindo 
 
 - JDK 17 ou superior
 - Maven 3.6 ou superior
-- Postman (para testes de API)
+- Postman (para testes de API, dentro do projeto tem uma pasta chamda "Collections" onde está as collections criadas durante a criação da API.)
 - Git (para controle de versão)
 
 ### Clonar o Repositório
