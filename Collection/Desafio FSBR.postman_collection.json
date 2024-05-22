@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "f32a380a-037e-4b9c-b7fa-a86b0af6df4f",
+		"name": "Desafio FSBR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12442068"
+	},
+	"item": [
+		{
+			"name": "GET ESTADOS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/ibge/estados",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ibge",
+						"estados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET MUNICIPIOS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/ibge/estados/PE/municipios",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ibge",
+						"estados",
+						"PE",
+						"municipios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Salvar Processo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "documentoPdf",
+							"type": "file",
+							"src": "/C:/Users/otavi/Downloads/arquivo.pdf"
+						},
+						{
+							"key": "npu",
+							"value": "123.123.123.123.123",
+							"type": "text"
+						},
+						{
+							"key": "municipio",
+							"value": "Jaboativeis",
+							"type": "text"
+						},
+						{
+							"key": "uf",
+							"value": "PE",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/processo/salvar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"processo",
+						"salvar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Processos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/processo/listar?page=0&size=12",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"processo",
+						"listar"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter Processo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/processo/df904654-4102-4bf0-a5d7-76fb70d6ff8a",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"processo",
+						"df904654-4102-4bf0-a5d7-76fb70d6ff8a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Processo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/processo/0ed2a34d-db20-4910-96fe-1fb0901288e4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"processo",
+						"0ed2a34d-db20-4910-96fe-1fb0901288e4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

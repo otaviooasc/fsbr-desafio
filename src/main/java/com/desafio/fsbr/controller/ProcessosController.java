@@ -49,16 +49,6 @@ public class ProcessosController {
         }
     }
 
-    private String salvarUploadPDF(MultipartFile documentoPdf) throws IOException {
-        if (!documentoPdf.isEmpty()) {
-            byte[] bytes = documentoPdf.getBytes();
-            Path path = Paths.get(uploadDir + documentoPdf.getOriginalFilename());
-            Files.write(path, bytes);
-            return path.toString();
-        }
-        return null;
-    }
-
     @GetMapping("/listar")
     public ResponseEntity<Object> listarProcessos(@RequestParam int page, @RequestParam int size) {
         return ResponseEntity.ok().body(service.listarProcessos(page, size));
@@ -77,5 +67,15 @@ public class ProcessosController {
     public ResponseEntity<Void> deletarProcesso(@PathVariable String id) {
         service.deletarProcesso(id);
         return ResponseEntity.noContent().build();
+    }
+
+    private String salvarUploadPDF(MultipartFile documentoPdf) throws IOException {
+        if (!documentoPdf.isEmpty()) {
+            byte[] bytes = documentoPdf.getBytes();
+            Path path = Paths.get(uploadDir + documentoPdf.getOriginalFilename());
+            Files.write(path, bytes);
+            return path.toString();
+        }
+        return null;
     }
 }
