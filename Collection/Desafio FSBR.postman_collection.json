@@ -162,6 +162,27 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Alterar Processo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/processo/alterar/a5a5879e-1cb2-4e4c-a905-3501aaaa7837",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"processo",
+						"alterar",
+						"a5a5879e-1cb2-4e4c-a905-3501aaaa7837"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

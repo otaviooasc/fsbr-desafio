@@ -38,7 +38,6 @@ public class ProcessosController {
 
             ProcessoModel processo = new ProcessoModel();
             processo.setNpu(npu);
-            processo.setDataVisualizacao(LocalDate.now());
             processo.setMunicipio(municipio);
             processo.setUf(uf);
             processo.setDocPDF(fileName);
@@ -67,6 +66,17 @@ public class ProcessosController {
     public ResponseEntity<Void> deletarProcesso(@PathVariable String id) {
         service.deletarProcesso(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/alterar/{id}")
+    public ResponseEntity<Object> alterarProcessoVisualizado(@PathVariable String id) {
+        try {
+            var processoById = (ProcessoModel) service.obterProcesso(id);
+            processoById.setDataVisualizacao(LocalDate.now());
+            return ResponseEntity.ok().body(service.atualizarProcesso(processoById));
+        } catch (ResourceNotFoundException ex) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Processo não encontrado: " + ex.getMessage());
+        }
     }
 
     private String salvarUploadPDF(MultipartFile documentoPdf) throws IOException {
